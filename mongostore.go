@@ -55,15 +55,11 @@ func insertOne(collectionName string, doc interface{}) (interface{}, error) {
 	return result, err
 }
 
-func findOne(collectionName string, doc interface{}) interface{} {
+func findOne(collectionName string, doc interface{}) (interface{}, error) {
 	collection := *MonGoClient.Database(DBName).Collection(collectionName)
-	result := collection.FindOne(*DbContext, doc)
-	if result == nil {
-		log.Fatal("Something not roight while fetching document")
-	}
-	err := result.Decode(doc)
-	if err != nil {
-		log.Fatal("Something not roight while binding to struct")
-	}
-	return result
+	filter, _ := createBSONWithNonEmptyFields(doc)
+	fmt.Printf("Trying to find %v", filter)
+	err := collection.FindOne(*DbContext, filter).Decode(doc)
+	return doc, err
+
 }

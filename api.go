@@ -12,7 +12,8 @@ func AllHandlers() *httprouter.Router {
 
 	router.POST("/", WelcomeUser)
 	router.POST("/login", LoginUser)
-	router.POST("/create-user", JWTMiddleware(CreateUser))
+	router.POST("/create-user", CreateUser)
+	router.GET("/get-user", JWTMiddleware(GetUser))
 	return router
 }
 
@@ -24,9 +25,16 @@ func LoginUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Add("Content-Type", "application/json")
 	var user *GBUser = new(GBUser)
 	decodeRequestBody(r, &user)
-	token, _ := createTokenForUser(user.GOBID)
+	_, err := findOne("user", &user)
 	var commonRes *GBCommongResponse = new(GBCommongResponse)
-	commonRes.Token = string(token)
+	if err != nil {
+		commonRes.Message = "User Not Found !"
+		w.WriteHeader(http.StatusForbidden)
+	} else {
+		token, _ := createTokenForUser(user.GOBID)
+		commonRes.Token = string(token)
+		w.WriteHeader(http.StatusAccepted)
+	}
 	response, _ := json.Marshal(commonRes)
 	w.Write(response)
 }
@@ -38,5 +46,14 @@ func CreateUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	user.GOBID = getUid()
 	insertOne("user", user)
 	resonse, _ := json.Marshal(user)
+	w.Write(resonse)
+}
+
+func GetUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	w.Header().Add("Content-Type", "application/json")
+	var user *GBUser = new(GBUser)
+	decodeRequestBody(r, &user)
+	findOne("user", &user)
+	resonse, _ := json.Marshal(*user)
 	w.Write(resonse)
 }

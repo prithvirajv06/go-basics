@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -12,6 +13,7 @@ import (
 	"github.com/golang-jwt/jwt"
 	"github.com/joho/godotenv"
 	"github.com/julienschmidt/httprouter"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 func loggerStartup() *os.File {
@@ -38,12 +40,12 @@ func decodeRequestBody(r *http.Request, targetVar interface{}) {
 }
 
 // Define your secret key
-var secretKey = []byte("your-secret-key")
+var secretKey = []byte("")
 
 func JWTMiddleware(next httprouter.Handle) httprouter.Handle {
 	secretKey = []byte(os.Getenv("jwt_key"))
 	return func(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-		tokenString := r.Header.Get("Authorization")
+		tokenString := strings.Split(r.Header.Get("Authorization"), "Bearer ")[1]
 		if tokenString == "" {
 			http.Error(w, "Authorization header missing", http.StatusUnauthorized)
 			return
@@ -59,6 +61,8 @@ func JWTMiddleware(next httprouter.Handle) httprouter.Handle {
 			http.Error(w, "Token is not valid", http.StatusUnauthorized)
 			return
 		}
+		jwtCLaim, _ := parseToken(tokenString)
+		w.Header().Add("userid", jwtCLaim.Sub)
 		next(w, r, params)
 	}
 }
@@ -69,18 +73,36 @@ func createTokenForUser(userid string) (string, error) {
 
 	// Set the claims (payload) for the token
 	claims := token.Claims.(jwt.MapClaims)
-	claims["sub"] = "GBTT_USER" // Subject
-	claims["userid"] = userid
+	claims["sub"] = userid // Subject
+	claims["name"] = userid
 	claims["iat"] = time.Now().Unix()                    // Issued At Time
 	claims["exp"] = time.Now().Add(time.Hour * 1).Unix() // Expiration Time (1 hour from now)
+	secretKey = []byte(os.Getenv("jwt_key"))
 
 	// Sign the token with a secret key
-	tokenString, err := token.SignedString([]byte("your-secret-key"))
+	tokenString, err := token.SignedString(secretKey)
 	if err != nil {
 		return "", err
 	}
 
 	return tokenString, nil
+}
+
+func parseToken(tokenString string) (*JwtClaims, error) {
+	// Parse the token
+	token, err := jwt.ParseWithClaims(tokenString, &JwtClaims{}, func(token *jwt.Token) (interface{}, error) {
+		return []byte(os.Getenv("jwt_key")), nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	if !token.Valid {
+		return nil, fmt.Errorf("Invalid token")
+	}
+	if claims, ok := token.Claims.(*JwtClaims); ok {
+		return claims, nil
+	}
+	return nil, fmt.Errorf("Failed to extract claims")
 }
 
 func getUid() string {
@@ -90,4 +112,25 @@ func getUid() string {
 	// Replace all matched characters with an empty string
 	cleaned := reg.ReplaceAllString(uid, "")
 	return cleaned
+}
+
+func createBSONWithNonEmptyFields(data interface{}) (bson.M, error) {
+	// Marshal the struct into a BSON map
+	bsonData, err := bson.Marshal(data)
+	if err != nil {
+		return nil, err
+	}
+	// Unmarshal the BSON map into a BSON M document
+	var bsonMap bson.M
+	err = bson.Unmarshal(bsonData, &bsonMap)
+	if err != nil {
+		return nil, err
+	}
+	// Remove empty fields from the BSON M document
+	for key, value := range bsonMap {
+		if value == nil || value == "" {
+			delete(bsonMap, key)
+		}
+	}
+	return bsonMap, nil
 }

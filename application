@@ -1,18 +1,101 @@
-2023/10/01 06:29:50 ----Trying to conencto to DB----
-2023/10/01 06:29:50 mongodb://localhost:27017
-2023/10/01 06:29:50 ----connected successfully----
-2023/10/01 06:36:57 ----Trying to conencto to DB----
-2023/10/01 06:36:57 mongodb://localhost:27017
-2023/10/01 06:36:58 ----connected successfully----
-2023/10/01 06:38:24 ----Trying to conencto to DB----
-2023/10/01 06:38:24 mongodb://localhost:27017
-2023/10/01 06:38:24 ----connected successfully----
-2023/10/01 06:42:21 ----Trying to conencto to DB----
-2023/10/01 06:42:21 mongodb://localhost:27017
-2023/10/01 06:42:21 ----connected successfully----
-2023/10/01 06:43:24 ----Trying to conencto to DB----
-2023/10/01 06:43:24 mongodb://localhost:27017
-2023/10/01 06:43:24 ----connected successfully----
-2023/10/01 16:06:18 ----Trying to conencto to DB----
-2023/10/01 16:06:18 mongodb://localhost:27017
-2023/10/01 16:06:18 ----connected successfully----
+2023/10/02 16:56:06 ----Trying to conencto to DB----
+2023/10/02 16:56:06 mongodb://localhost:27017
+2023/10/02 16:56:06 ----connected successfully----
+2023/10/02 16:57:15 ----Trying to conencto to DB----
+2023/10/02 16:57:15 mongodb://localhost:27017
+2023/10/02 16:57:15 ----connected successfully----
+2023/10/02 16:58:00 ----Trying to conencto to DB----
+2023/10/02 16:58:00 mongodb://localhost:27017
+2023/10/02 16:58:00 ----connected successfully----
+2023/10/02 16:59:24 ----Trying to conencto to DB----
+2023/10/02 16:59:24 mongodb://localhost:27017
+2023/10/02 16:59:24 ----connected successfully----
+2023/10/02 16:59:24 listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/10/02 16:59:25 ----Trying to conencto to DB----
+2023/10/02 16:59:25 mongodb://localhost:27017
+2023/10/02 16:59:25 ----connected successfully----
+2023/10/02 16:59:25 listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/10/02 16:59:42 ----Trying to conencto to DB----
+2023/10/02 16:59:42 mongodb://localhost:27017
+2023/10/02 16:59:42 ----connected successfully----
+2023/10/02 16:59:42 listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/10/02 16:59:56 ----Trying to conencto to DB----
+2023/10/02 16:59:56 mongodb://localhost:27017
+2023/10/02 16:59:56 ----connected successfully----
+2023/10/02 17:02:07 ----Trying to conencto to DB----
+2023/10/02 17:02:07 mongodb://localhost:27017
+2023/10/02 17:02:07 ----connected successfully----
+2023/10/02 17:02:07 listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/10/02 17:02:28 ----Trying to conencto to DB----
+2023/10/02 17:02:28 mongodb://localhost:27017
+2023/10/02 17:02:28 ----connected successfully----
+2023/10/02 17:02:28 listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/10/02 17:02:38 ----Trying to conencto to DB----
+2023/10/02 17:02:38 mongodb://localhost:27017
+2023/10/02 17:02:38 ----connected successfully----
+2023/10/02 17:04:13 ----Trying to conencto to DB----
+2023/10/02 17:04:13 mongodb://localhost:27017
+2023/10/02 17:04:13 ----connected successfully----
+2023/10/02 17:11:23 ----Trying to conencto to DB----
+2023/10/02 17:11:23 mongodb://localhost:27017
+2023/10/02 17:11:23 ----connected successfully----
+2023/10/02 17:14:42 ----Trying to conencto to DB----
+2023/10/02 17:14:42 mongodb://localhost:27017
+2023/10/02 17:14:42 ----connected successfully----
+2023/10/02 17:15:34 ----Trying to conencto to DB----
+2023/10/02 17:15:34 mongodb://localhost:27017
+2023/10/02 17:15:34 ----connected successfully----
+2023/10/02 17:15:42 ----Trying to conencto to DB----
+2023/10/02 17:15:42 mongodb://localhost:27017
+2023/10/02 17:15:42 ----connected successfully----
+2023/10/02 17:19:17 ----Trying to conencto to DB----
+2023/10/02 17:19:17 mongodb://localhost:27017
+2023/10/02 17:19:17 ----connected successfully----
+2023/10/02 17:22:33 ----Trying to conencto to DB----
+2023/10/02 17:22:33 mongodb://localhost:27017
+2023/10/02 17:22:33 ----connected successfully----
+2023/10/02 17:27:08 ----Trying to conencto to DB----
+2023/10/02 17:27:08 mongodb://localhost:27017
+2023/10/02 17:27:08 ----connected successfully----
+2023/10/02 17:31:52 ----Trying to conencto to DB----
+2023/10/02 17:31:52 mongodb://localhost:27017
+2023/10/02 17:31:52 ----connected successfully----
+2023/10/02 17:32:49 ----Trying to conencto to DB----
+2023/10/02 17:32:49 mongodb://localhost:27017
+2023/10/02 17:32:49 ----connected successfully----
+2023/10/02 17:33:55 ----Trying to conencto to DB----
+2023/10/02 17:33:55 mongodb://localhost:27017
+2023/10/02 17:33:55 ----connected successfully----
+2023/10/02 17:35:31 ----Trying to conencto to DB----
+2023/10/02 17:35:31 mongodb://localhost:27017
+2023/10/02 17:35:31 ----connected successfully----
+2023/10/02 17:39:49 ----Trying to conencto to DB----
+2023/10/02 17:39:49 mongodb://localhost:27017
+2023/10/02 17:39:49 ----connected successfully----
+2023/10/02 17:41:21 ----Trying to conencto to DB----
+2023/10/02 17:41:21 mongodb://localhost:27017
+2023/10/02 17:41:21 ----connected successfully----
+2023/10/02 17:49:28 ----Trying to conencto to DB----
+2023/10/02 17:49:28 mongodb://localhost:27017
+2023/10/02 17:49:28 ----connected successfully----
+2023/10/02 17:50:39 ----Trying to conencto to DB----
+2023/10/02 17:50:39 mongodb://localhost:27017
+2023/10/02 17:50:39 ----connected successfully----
+2023/10/02 17:51:53 ----Trying to conencto to DB----
+2023/10/02 17:51:53 mongodb://localhost:27017
+2023/10/02 17:51:53 ----connected successfully----
+2023/10/02 17:51:53 listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/10/02 17:55:05 ----Trying to conencto to DB----
+2023/10/02 17:55:05 mongodb://localhost:27017
+2023/10/02 17:55:05 ----connected successfully----
+2023/10/02 17:55:05 listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/10/02 17:55:11 ----Trying to conencto to DB----
+2023/10/02 17:55:11 mongodb://localhost:27017
+2023/10/02 17:55:11 ----connected successfully----
+2023/10/02 17:55:11 listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/10/02 17:55:17 ----Trying to conencto to DB----
+2023/10/02 17:55:17 mongodb://localhost:27017
+2023/10/02 17:55:17 ----connected successfully----
+2023/10/02 17:56:15 ----Trying to conencto to DB----
+2023/10/02 17:56:15 mongodb://localhost:27017
+2023/10/02 17:56:15 ----connected successfully----
