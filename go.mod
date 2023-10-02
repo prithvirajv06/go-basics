@@ -1,4 +1,4 @@
-module github.com/PrithviPy/go-buddies-test-tool
+module github.com/PrithviPy/go-buddies-rest-template
 
 go 1.21.1
 

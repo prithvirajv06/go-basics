@@ -17,6 +17,8 @@ func AllHandlers() *httprouter.Router {
 	return router
 }
 
+//*************************************************User Account Handlers***************************************************************************//
+
 func WelcomeUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Write([]byte("Welcoem To Go Buddies !"))
 }
@@ -57,3 +59,5 @@ func GetUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	resonse, _ := json.Marshal(*user)
 	w.Write(resonse)
 }
+
+//****************************************************************************************************************************************//
